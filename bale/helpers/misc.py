@@ -1,5 +1,6 @@
 import itertools
 import logging
+import pickle
 import random
 from typing import Literal
 
@@ -129,3 +130,7 @@ def run_permutation_test(a: pd.Series, b: pd.Series, sign: Literal['>', '<', 'ei
     print(v)
 
     return v
+
+def load_pickle_from(path):
+    with open(path, "rb") as f:
+        return pickle.load(f)

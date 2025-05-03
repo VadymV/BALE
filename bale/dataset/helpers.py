@@ -228,34 +228,3 @@ def get_epochs(epochs_path):
                 "Data for the subject {} is not found".format(subject))
     return epochs_dict
 
-
-def read_events_metadata(bids_path, subject, include_events):
-    """
-    Reads a subject's raw optical density data from BIDS and returns it as a dataframe.
-    """
-    subject_id = subject[-3:]
-
-    sub_events_path = os.path.join(bids_path, "sub-{}".format(subject_id),
-                                   'nirs', "sub-{}_task-{}_events.tsv".format(
-            subject_id, include_events))
-
-    return pd.read_csv(sub_events_path, sep="\t")
-
-
-def read_raw_od(bids_path, subject, include_events):
-    """
-    Reads a subject's raw optical density data from BIDS and returns it as an MNE object.
-    """
-    subject_id = subject[-3:]
-    bidspath = BIDSPath(
-        subject=subject_id,
-        task=include_events,
-        root=bids_path,
-        datatype="nirs",
-    )
-    # mne_bids does not currently support reading fnirs_od, so we have to manually set the channel types and ignore warnings
-    with mne.utils.use_log_level("ERROR"):
-        raw_od_bids = read_raw_bids(bidspath).load_data()
-        ch_map = {ch: "fnirs_od" for ch in raw_od_bids.ch_names}
-        raw_od_bids.set_channel_types(ch_map)
-    return raw_od_bids

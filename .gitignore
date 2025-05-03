@@ -1,0 +1,6 @@
+/.venv/
+/lightning_logs/
+/NEMO/
+/logs.log
+.idea
+/data/

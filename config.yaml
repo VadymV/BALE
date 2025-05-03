@@ -1,0 +1,53 @@
+learning_rate: 0.0003
+weight_decay: 0.0
+patience: 3
+
+bale_epochs_nemo_dependent: 131
+bale_batch_size_nemo_dependent: 248
+bale_projection_dim_nemo_dependent: 685
+bale_mlp_h_dim_nemo_dependent: 2707
+
+supervised_epochs_nemo_dependent: 55
+supervised_batch_size_nemo_dependent: 209
+supervised_projection_dim_nemo_dependent: 401
+supervised_mlp_h_dim_nemo_dependent: 1359
+
+bale_epochs_aomic_dependent: 96
+bale_batch_size_aomic_dependent: 1559
+bale_projection_dim_aomic_dependent: 510
+bale_mlp_h_dim_aomic_dependent: 1920
+
+supervised_epochs_aomic_dependent: 273
+supervised_batch_size_aomic_dependent: 4091
+supervised_projection_dim_aomic_dependent: 181
+supervised_mlp_h_dim_aomic_dependent: 747
+
+bale_epochs_nemo_independent: 288
+bale_batch_size_nemo_independent: 273
+bale_projection_dim_nemo_independent: 360
+bale_mlp_h_dim_nemo_independent: 4065
+
+supervised_epochs_nemo_independent: 67
+supervised_batch_size_nemo_independent: 281
+supervised_projection_dim_nemo_independent: 77
+supervised_mlp_h_dim_nemo_independent: 3960
+
+bale_epochs_aomic_independent: 151
+bale_batch_size_aomic_independent: 537
+bale_projection_dim_aomic_independent: 1011
+bale_mlp_h_dim_aomic_independent: 1081
+
+supervised_epochs_aomic_independent: 258
+supervised_batch_size_aomic_independent: 482
+supervised_projection_dim_aomic_independent: 231
+supervised_mlp_h_dim_aomic_independent: 3925
+
+# General:
+model_save_dir_cluster: "/home/vcx763/DATA/MODELS"
+model_save_dir_local: "C:\\Users\\vcx763\\Data\\MODELS"
+preds_save_dir_cluster: "/home/vcx763/DATA/PREDS"
+preds_save_dir_local: "C:\\Users\\vcx763\\Data\\PREDS"
+project_name: 'BALE'
+tmp_folder_cluster: "/home/vcx763/tmp"
+tmp_folder_local: "C:\\Users\\vcx763\\Data\\tmp"
+limit_batches: 1.0

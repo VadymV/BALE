@@ -8,7 +8,7 @@ from dataclasses import dataclass, field
 import numpy as np
 import pandas as pd
 import torch
-from nemo.utils import load_from
+from bale.helpers.misc import load_pickle_from
 from sklearn.model_selection import LeaveOneGroupOut, BaseCrossValidator, \
     StratifiedGroupKFold
 from torch.utils.data import Dataset
@@ -802,10 +802,10 @@ class FNIRSDataset(BrainyDataset):
         return batch_data, labels_data, user_ids
 
     def load_dataset(self):
-        X = load_from(self.data_path / "X.pkl")
-        y = load_from(self.data_path / "y.pkl")
-        epoch_ids = load_from(self.data_path / "epoch_ids.pkl")
-        fnirs_metadata = load_from(self.data_path / "metadata.pkl")
+        X = load_pickle_from(self.data_path / "X.pkl")
+        y = load_pickle_from(self.data_path / "y.pkl")
+        epoch_ids = load_pickle_from(self.data_path / "epoch_ids.pkl")
+        fnirs_metadata = load_pickle_from(self.data_path / "metadata.pkl")
 
         if self.remove_tuned_participants:
             logging.info("Skipping participants that are in the tune set")
@@ -816,7 +816,7 @@ class FNIRSDataset(BrainyDataset):
             fnirs_metadata['subject_temp'] = fnirs_metadata['subject'].str.replace("sub-", "")
             fnirs_metadata = fnirs_metadata[~fnirs_metadata['subject_temp'].isin(_NEMO_TUNE_PARTICIPANTS)]
             fnirs_metadata = fnirs_metadata.drop('subject_temp', axis=1).reset_index(drop=True)
-        channels = load_from(self.data_path / "channels.pkl")
+        channels = load_pickle_from(self.data_path / "channels.pkl")
         hbo_channels = [label for idx, label in enumerate(channels) if
                         'hbo' in label]
         flat_epoch_ids = [item for sublist in

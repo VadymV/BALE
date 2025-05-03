@@ -30,6 +30,7 @@ from bale.model.helpers import log_all_parameters
 from bale.model.loss import ClipLoss, MSELoss
 from bale.model.modality import ModalityModels, CLIPImageEncoder, BrainMLPEncoder, BrainMLPClassifier
 
+TUNE_FOLD_ID = 1
 
 class CheckpointCleanupCallback(Callback):
     def on_train_end(self, trainer, pl_module):
@@ -647,7 +648,7 @@ def run(configuration: dict) -> None:
 
         if configuration["mode"] == "tune":
             if configuration["tune_model"] == "bale":
-                if configuration["tune_fold_id"] == fold_id:
+                if fold_id == TUNE_FOLD_ID:
                     logging.info("Running hyperparameter tuning for BALE")
                     for i in range(50):
                         logging.info(f"Iteration {i}")
@@ -659,7 +660,7 @@ def run(configuration: dict) -> None:
                                                   file_name=configuration['project_name'] + f"_best_hyperparameters_bale_{fold_id}.csv")
 
             if configuration["tune_model"] == "supervised":
-                if configuration["tune_fold_id"] == fold_id:
+                if fold_id == TUNE_FOLD_ID:
                     logging.info("Running hyperparameter tuning for Brain (supervised)")
                     for i in range(50):
                         logging.info(f"Iteration {i}")
@@ -717,14 +718,6 @@ if __name__ == '__main__':
     )
 
     parser.add_argument(
-        "-tf",
-        "--tune_fold_id",
-        type=int,
-        default=1,
-        help="Fold to use for hyperparameter tuning."
-    )
-
-    parser.add_argument(
         "-tm",
         "--tune_model",
         type=str,
@@ -732,17 +725,10 @@ if __name__ == '__main__':
         help="Model to tune: 'bale' or 'supervised'."
     )
 
-    parser.add_argument(
-        "-local",
-        "--local",
-        action="store_true",
-        help="Local mode."
-    )
-
     args = parser.parse_args()
     pprint(args)
 
-    config_path = os.path.join(PROJECT_PATH / "scripts/config.yaml")
+    config_path = os.path.join(PROJECT_PATH / "config.yaml")
 
     with open(config_path) as f:
         config = yaml.load(f, Loader=SafeLoader)
@@ -753,8 +739,6 @@ if __name__ == '__main__':
     config["mode"] = args.mode
     config["seed"] = args.seed
     config["tune"] = False if config['mode'] == "train" else True
-    config["local"] = args.local
-    config["tune_fold_id"] = args.tune_fold_id
     config["tune_model"] = args.tune_model
 
     d = config["dataset"]

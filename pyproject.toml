@@ -1,14 +1,25 @@
 [project]
 name = "bale"
 version = "0.1.0"
-description = "Add your description here"
-requires-python = ">=3.10"
+description = "Bimodal Affective Learning"
+requires-python = "==3.10.15"
 dependencies = [
     "fsspec>=2025.3.2",
     "lightning>=2.5.1.post0",
+    "matplotlib>=3.10.1",
+    "mne==1.1.1",
+    "mne-bids @ git+https://github.com/Kallemakela/mne-bids.git@fnirs_od-support#egg=mne-bids",
+    "nemo",
     "pandas>=2.2.3",
     "pyarrow>=20.0.0",
     "ray>=2.45.0",
     "requests>=2.32.3",
+    "scikit-learn>=1.6.1",
+    "seaborn>=0.13.2",
     "torch>=2.7.0",
+    "torchvision>=0.22.0",
 ]
+
+[tool.uv.sources]
+mne-bids = { git = "https://github.com/Kallemakela/mne-bids.git", rev = "fnirs_od-support" }
+nemo = { path = "NEMO" }
