@@ -3,16 +3,6 @@ This repository contains the code for the paper *Decoding affective states witho
 
 Further details will be uploaded on May 4.
 
-## Install dependencies
-
-``uv`` is used as package manager. To install the dependencies, run:
-```py
-uv sync
-git clone https://github.com/Cognitive-Computing-Group/NEMO.git
-git clone https://github.com/Kallemakela/mne-bids.git
-uv pip install -e external/nemo
-```
-
 ## Download and prepare NEMO
 1. Download *nemo-bids.zip* from https://osf.io/pd9rv/
 2. Extract into the folder `dat/nemo-bids/`
