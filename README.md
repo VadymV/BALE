@@ -13,7 +13,6 @@ Further details will be uploaded on May 4.
 7. `cd ..`
 8. `python convert_bids_to_fif.py` to convert the BIDS dataset into FIF format. The script will create a folder `data/nemo-preprocessed-data/` with the converted data.
 9. `conda deactivate`
-10. Extracting embeddings for images: TODO
 
 ## Download and prepare AOMIC
 1. TODO
