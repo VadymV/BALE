@@ -43,11 +43,11 @@ supervised_projection_dim_aomic_independent: 231
 supervised_mlp_h_dim_aomic_independent: 3925
 
 # General:
-model_save_dir_cluster: "/home/vcx763/DATA/MODELS"
-model_save_dir_local: "C:\\Users\\vcx763\\Data\\MODELS"
-preds_save_dir_cluster: "/home/vcx763/DATA/PREDS"
-preds_save_dir_local: "C:\\Users\\vcx763\\Data\\PREDS"
+model_save_dir_cluster: ""
+model_save_dir_local: ""
+preds_save_dir_cluster: ""
+preds_save_dir_local: ""
 project_name: 'BALE'
-tmp_folder_cluster: "/home/vcx763/tmp"
-tmp_folder_local: "C:\\Users\\vcx763\\Data\\tmp"
+tmp_folder_cluster: ""
+tmp_folder_local: ""
 limit_batches: 1.0
