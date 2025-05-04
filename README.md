@@ -20,7 +20,7 @@ This repository contains the code for the paper *Decoding affective states witho
 2. Locate `ds002785` extract the downloaded data into the folder `data/aomic/recordings`
 3. AOMIC dataset requires ADFEC dataset (https://aice.uva.nl/research-tools/adfes-stimulus-set/adfes-stimulus-set.html?cb)
 4. Download the videos, extract them and run the script `extract_aomic_frames.py` to convert the videos into frames.
-5. `uv run python .\extract_frames_aomic.py` 
+5. `uv run python .\copy_last_aomic_frame.py` 
 
 ## Extract image features from images
 1. `uv run python .\extract_image_features.py`
