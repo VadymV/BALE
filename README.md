@@ -23,7 +23,7 @@ This repository contains the code for the paper *Decoding affective states witho
 5. `uv run python .\copy_last_aomic_frame.py` 
 
 ## Extract image features from images
-1. `uv run python .\extract_image_features.py`
+`uv run python .\extract_image_features.py`
 
 ## Run the training
 ```py
