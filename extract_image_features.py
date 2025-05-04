@@ -1,10 +1,13 @@
 import os
 import shutil
+from pathlib import Path
 
 import torch
 import torch.nn as nn
 from PIL import Image
 from transformers import AutoProcessor, CLIPVisionModel
+
+from bale import PROJECT_PATH
 
 
 def recreate_directory(directory_path):
@@ -50,10 +53,8 @@ class ClipVisionModel(torch.nn.Module):
 clip_extractor = ClipVisionModel()
 
 for dataset in ['aomic', 'nemo']:
-    all_images = 'C:\\Users\\vcx763\\PycharmProjects\\Brainy\\data\\{}\\images'.format(
-        dataset)
-    embeddings_path = 'C:\\Users\\vcx763\\PycharmProjects\\Brainy\\data\\{}\\images\\embeddings'.format(
-        dataset)
+    all_images = Path(f"{PROJECT_PATH.__str__()}/data/{dataset}/images")
+    embeddings_path = Path(f"{PROJECT_PATH.__str__()}/data/{dataset}/images/embeddings")
     recreate_directory(embeddings_path)
     for filename in os.listdir(all_images):
         if filename.endswith('.jpg') or filename.endswith('.JPG'):

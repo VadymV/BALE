@@ -2,11 +2,12 @@ import logging
 from collections import defaultdict
 from pathlib import Path
 
-from nemo.epochs import get_epochs_dfs, get_epochs_raw_dataset
-from nemo.utils import save_to
+from NEMO.nemo.epochs import get_epochs_dfs, get_epochs_raw_dataset
+from NEMO.nemo.utils import save_to
 
-from src.helpers import EVENTS_TYPE, PROJECT_PATH, TASK_TYPE, set_logging, \
-    get_epochs, CHANNELS
+from bale.dataset.helpers import CHANNELS, get_epochs
+from bale.helpers.misc import set_logging
+from bale import EVENTS_TYPE, PROJECT_PATH, TASK_TYPE
 
 if __name__ == "__main__":
     set_logging(PROJECT_PATH.__str__())
