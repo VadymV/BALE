@@ -12,25 +12,26 @@ This repository contains the code for the paper *Decoding affective states witho
 8. `python convert_nemo_bids_to_fif.py` to convert the BIDS dataset into FIF format. The script will create a folder `data/nemo-preprocessed-data/` with the converted data.
 9. `conda deactivate`
 10. `uv sync`
+11. Set the correct paths in the config.yaml file (Lines: 46 - 52).
 11. `uv run python .\extract_nemo_features.py`.
 12. Download IAPS images (https://psycnet.apa.org/record/2007-08864-002; https://osf.io/d8sru) and place them in `data/nemo/images/` such that this folder contains only jpg images.
 
 ## Download and prepare AOMIC (request for access is required)
-1. Download DiFuMo data from https://figshare.com/projects/Self-Supervised_Learning_of_Brain_Dynamics_from_Broad_Neuroimaging_Data/172176
-2. Locate `ds002785` extract the downloaded data into the folder `data/aomic/recordings`
-3. AOMIC dataset requires ADFEC dataset (https://aice.uva.nl/research-tools/adfes-stimulus-set/adfes-stimulus-set.html?cb)
-4. Download the videos, extract them and run the script `extract_aomic_frames.py` to convert the videos into frames.
-5. `uv run python .\copy_last_aomic_frame.py` 
+1. AOMIC dataset requires ADFEC dataset (https://aice.uva.nl/research-tools/adfes-stimulus-set/adfes-stimulus-set.html?cb)
+2. Download the videos, extract them and run the script `extract_aomic_frames.py` to convert the videos into frames.
+3. `uv run python .\copy_last_aomic_frame.py`
+4. Download DiFuMo data from https://figshare.com/projects/Self-Supervised_Learning_of_Brain_Dynamics_from_Broad_Neuroimaging_Data/172176
+5. Locate `ds002785` extract the downloaded data and run the script `extract_aomic_recordings.py`
 
 ## Extract image features from images
 `uv run python .\extract_image_features.py`
 
 ## Run the training
 ```py
-uv run python .\run_experiments.py -d dataset -cv subject-dependent
+uv run python .\run_experiments.py -d dataset -cv strategy
 ```
 where dataset is one of the following: `nemo` or `aomic` and
-cv is one of the following: `subject-dependent` or `subject-independent`
+strategy is one of the following: `subject-dependent` or `subject-independent`
 
 ## Generate the results and the figures
 ```py

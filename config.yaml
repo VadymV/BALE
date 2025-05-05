@@ -44,10 +44,10 @@ supervised_mlp_h_dim_aomic_independent: 3925
 
 # General:
 model_save_dir_cluster: ""
-model_save_dir_local: ""
+model_save_dir_local: "PATH\\MODELS"
 preds_save_dir_cluster: ""
-preds_save_dir_local: ""
+preds_save_dir_local: "PATH\\BALE-results"
 project_name: 'BALE'
 tmp_folder_cluster: ""
-tmp_folder_local: ""
+tmp_folder_local: "PATH\\tmp"
 limit_batches: 1.0

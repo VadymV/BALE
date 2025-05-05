@@ -23,7 +23,7 @@ for input_dir, region in input_dirs.items():
             video_output_dir = os.path.join(region_output_dir, video_name)
             os.makedirs(video_output_dir, exist_ok=True)
 
-            output_pattern = os.path.join(video_output_dir, "frame_%04d.png")
+            output_pattern = os.path.join(video_output_dir, "frame_%04d.jpg")
             command = [
                 "ffmpeg",
                 "-i", video_path,
