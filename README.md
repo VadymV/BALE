@@ -31,7 +31,7 @@ This repository contains the code for the paper *Decoding affective states witho
 uv run python .\run_experiments.py -d dataset -cv strategy
 ```
 where dataset is one of the following: `nemo` or `aomic` and
-strategy is one of the following: `subject-dependent` or `subject-independent`
+strategy is one of the following: `subject-dependent` or `subject-independent` 
 
 ## Generate the results and the figures
 ```py
