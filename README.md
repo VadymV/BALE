@@ -1,5 +1,5 @@
 # BALE (Bimodal Affective LEarning)
-This repository contains the code for the paper *Decoding affective states without labels: bimodal image-brain supervision* submitted to *ACM International Conference on Multimodal Interaction*. 
+This repository contains the code for the paper *Decoding Affective States without Labels: Bimodal Image-brain Supervision* accepted to *ACM International Conference on Multimodal Interaction* 2025, Canberra, Australia. 
 
 ## Download and prepare NEMO
 1. Download *nemo-bids.zip* from https://osf.io/pd9rv/
